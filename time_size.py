@@ -1,10 +1,9 @@
-import numpy as np
 import matplotlib.pyplot as plt
 
 size = []
 time = []
 
-with open("linear_search_analysis.txt") as f:
+with open("dataset1.txt") as f:
     next(f)  # skip header
     for line in f:
         cols = line.split()
@@ -14,13 +13,6 @@ with open("linear_search_analysis.txt") as f:
 
         size.append(s)
         time.append(t)
-
-size = np.array(size)
-time = np.array(time)
-
-# ---------------- SMOOTHING ----------------
-window = 50
-time_smooth = np.convolve(time, np.ones(window)/window, mode='valid')
 
 # ---------------- O(n) BENCHMARK ----------------
 # Scale linear function to last data point
@@ -32,10 +24,6 @@ plt.figure(figsize=(10, 6))
 
 # Measured time
 plt.plot(size, time, label="Measured Time", linewidth=2)
-
-# Smoothed trend
-plt.plot(size[:len(time_smooth)], time_smooth,
-         label="Smoothed Trend", linewidth=2, color="green")
 
 # Theoretical O(n)
 plt.plot(size, on_benchmark, linestyle="--",
