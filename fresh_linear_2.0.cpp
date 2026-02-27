@@ -28,7 +28,7 @@ int main()
     const int START_SIZE = 1000;
     const int MAX_SIZE = 500000;
     const int STEP_SIZE = 10000;
-    const int TRIALS = 3000;
+    const int TRIALS = 1;
     const int keyMultiplier = 2;
     srand(time(NULL));
 

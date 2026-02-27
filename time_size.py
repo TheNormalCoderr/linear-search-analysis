@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 size = []
 time = []
 
-with open("dataset1.txt") as f:
+with open("dataset-2.txt") as f:
     next(f)  # skip header
     for line in f:
         cols = line.split()
@@ -17,7 +17,7 @@ with open("dataset1.txt") as f:
 # ---------------- O(n) BENCHMARK ----------------
 # Scale linear function to last data point
 c = time[-1] / size[-1]
-on_benchmark = c * size
+on_benchmark = [c * s for s in size]
 
 # ---------------- PLOTTING ----------------
 plt.figure(figsize=(10, 6))
